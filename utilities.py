@@ -2,12 +2,12 @@ import os
 
 
 # Rename all images in this directory
-def rename_image(folder):
-    for count, filename in enumerate(os.listdir(folder + "/")):
+def rename_image(path):
+    for count, filename in enumerate(os.listdir(path)):
         dst = str(count) + ".jpg"
         print(filename + " --> " + dst)
-        src = folder + "/" + filename
-        dst = folder + "/" + dst
+        src = os.path.join(path, filename)
+        dst = path + "/" + dst
 
         os.rename(src, dst)
 
@@ -29,11 +29,10 @@ def percentage_corrected(result, answer):
     return str(percent) + "%"
 
 
-def is_rename():
-    list_image = os.listdir("images")
+def is_rename(path):
+    list_image = os.listdir(path)
     list_image.sort(key=lambda f: int(os.path.splitext(f)[0]))
     if list_image[0] == "0.jpg":
         return True
     else:
         return False
-
