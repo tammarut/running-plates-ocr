@@ -3,10 +3,9 @@ import os
 from pre_processing import pre_image
 import utilities as util
 
-
 def main():
     path = 'images/'
-    custom_config = r' -c tessedit_char_whitelist=0123456789 --psm 8'
+    custom_config = r' -c tessedit_char_whitelist=0123456789 --oem 1 --psm 8'
     list_image = os.listdir(path)
     list_image.sort(key=lambda f: int(os.path.splitext(f)[0]))
     answer = []
