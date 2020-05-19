@@ -9,9 +9,14 @@ def conv_grayscale(image):
     return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 
-# Rescale
-def resize(image):
+# Rescale(shrink)
+def shrink(image):
     return cv2.resize(image, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
+
+
+# Rescale(enlarge)
+def enlarge(image):
+    return cv2.resize(image, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_CUBIC)
 
 
 # erosion and followed by dilation
@@ -49,7 +54,6 @@ def pre_image(image):
 
     original = cv2.imread(path + image)
     temp = conv_grayscale(original)
-    temp = resize(temp)
     temp = opening(temp)
     temp = remove_noise(temp)
     temp = thresholding(temp)
