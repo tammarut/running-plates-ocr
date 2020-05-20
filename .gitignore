@@ -187,5 +187,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# PyCharm
+.idea/
 # End of https://www.gitignore.io/api/git,vim,linux,python,windows
-
