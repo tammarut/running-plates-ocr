@@ -1,7 +1,8 @@
 import pytesseract
 import os
-from pre_processing import pre_image
+from pre_processing import *
 import utilities as util
+from answer import read_answers
 
 path = 'images/tankwa'
 custom_config = r' -c tessedit_char_whitelist=0123456789 --oem 1 --psm 8'
@@ -10,7 +11,8 @@ custom_config = r' -c tessedit_char_whitelist=0123456789 --oem 1 --psm 8'
 def main():
     list_image = os.listdir(path)
     list_image.sort(key=lambda f: int(os.path.splitext(f)[0]))
-    answer = []
+
+    answer = read_answers(path)
     result = []
 
     for index, image in enumerate(list_image):
