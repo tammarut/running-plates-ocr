@@ -1,5 +1,5 @@
-# The Running plates project(Machine learning) 
-Read  bunch numbers from the runner plate![BIB OCR](https://www.thephuketnews.com/photo/listing/2016/1465177820_1-org.jpg)
+# The Running Bib(Machine learning) 
+Read  bunch numbers from the runner bib![BIB OCR](https://www.thephuketnews.com/photo/listing/2016/1465177820_1-org.jpg)
 
 ## Getting Started
 
