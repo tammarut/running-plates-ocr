@@ -28,6 +28,9 @@ Python Packages
  - numpy
 
 ## Run
+Take your **test-images** to directory ***images***
+
+    images/your-test-images-directory
 
 Run only **main.py**
 
