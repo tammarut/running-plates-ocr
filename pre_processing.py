@@ -6,6 +6,7 @@ import os
 
 kernel = np.ones((3, 3), np.uint8)
 
+
 # Convert to gray image
 def conv_grayscale(image):
     return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -39,7 +40,7 @@ def crop(image):
     width, height = image.size
 
     # Setting the points for cropped image
-    left = 2 * width / 10
+    left = 1 * width / 10
     right = width
     top = height / 4
     bottom = 3 * height / 4
