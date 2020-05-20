@@ -24,7 +24,7 @@ def percentage_corrected(result, answer):
         else:
             wrong += 1
 
-    print(correct, wrong)
+    print("correct: %d/%d\nwrong: %d/%d" % (correct, total, wrong, total))
     percent = float((correct / total)) * 100.0
     return str(percent) + "%"
 
