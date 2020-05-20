@@ -1,8 +1,10 @@
 import cv2
 import numpy as np
+from main import *
+from PIL import Image
+import os
 
-kernel = np.ones((5, 5), np.uint8)
-
+kernel = np.ones((3, 3), np.uint8)
 
 # Convert to gray image
 def conv_grayscale(image):
@@ -17,6 +19,34 @@ def shrink(image):
 # Rescale(enlarge)
 def enlarge(image):
     return cv2.resize(image, None, fx=1.5, fy=1.5, interpolation=cv2.INTER_CUBIC)
+
+
+# dilation(thin)
+def dilate(image):
+    return cv2.dilate(image, kernel, iterations=1)
+
+
+# erosion(thicken)
+def erode(image):
+    return cv2.erode(image, kernel, iterations=1)
+
+
+# crop image
+def crop(image):
+    # Convert from numpy to picture
+    image = Image.fromarray(image)
+    # Size of the image in pixels (size of original image)
+    width, height = image.size
+
+    # Setting the points for cropped image
+    left = 2 * width / 10
+    right = width
+    top = height / 4
+    bottom = 3 * height / 4
+
+    # Cropped image of above dimension
+    cropped = image.crop((left, top, right, bottom))
+    return np.asarray(cropped)
 
 
 # erosion and followed by dilation
@@ -50,10 +80,10 @@ def deskew(image):
 
 
 def pre_image(image):
-    path = 'images/'
-
-    original = cv2.imread(path + image)
-    temp = conv_grayscale(original)
+    original = cv2.imread(os.path.join(path, image))
+    temp = enlarge(original)
+    temp = crop(temp)
+    temp = conv_grayscale(temp)
     temp = opening(temp)
     temp = remove_noise(temp)
     temp = thresholding(temp)
