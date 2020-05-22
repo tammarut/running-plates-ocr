@@ -32,6 +32,20 @@ Take your **test-images** to directory ***images***
 
     images/your-test-images-directory
 
+Take your **answer** to direcotory
+```
+images/answer.json
+```
+Set path in **main.py**
+```
+path = 'images/your-test-image-directory'
+```
+Set answer path to check correct/wrong in **answer.py**
+```
+path_answer = 'images/answer.json'
+```
+
+and
 Run only **main.py**
 
 ```
